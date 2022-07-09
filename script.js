@@ -1,19 +1,21 @@
-$(document).ready(function () {
-    GetData();
-    // Play_audio();
-    // load_and_play()
-    // get_audio_play()
-    $('#btn-cmd').click(function () {
-        // Play_audio()
+function start(){
+    $(document).ready(function () {
+        GetData();
+        // Play_audio();
         // load_and_play()
-        alert("Uploading command to Machine")
-        // alert()
-    })
-    // $('#alert_btn').trigger('click')
-    // playSound()
-    // skhst_cheers()
-
-});
+        // get_audio_play()
+        $('#btn-cmd').click(function () {
+            // Play_audio()
+            // load_and_play()
+            alert("Uploading command to Machine")
+            // alert()
+        })
+        // $('#alert_btn').trigger('click')
+        // playSound()
+        // skhst_cheers()
+    
+    });
+}
 
 function Play_audio() {
     $("#alert_audio").get(0).play();
@@ -148,20 +150,27 @@ function skhst_cheers() {
 }
 function onChange(e) {
     if (this.checked) {
-        clickFunction2();
+        ruunning();
+        start();
     } else {
-        clickFunction();
+        stopped();
     }
 }
 
-function clickFunction() {
+function stopped() {
     var currSpan = document.getElementById("span-info-3");
     currSpan.textContent = "Stopped";
+
+    var currSpan2 = document.getElementById("readings");
+    currSpan2.textContent = "Last Readings";
 }
 
-function clickFunction2() {
+function ruunning() {
     var currSpan = document.getElementById("span-info-3");
     currSpan.textContent = "Running";
+
+    var currSpan2 = document.getElementById("readings");
+    currSpan2.textContent = "Current Readings";
 }
 
 
