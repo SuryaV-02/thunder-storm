@@ -152,8 +152,10 @@ function onChange(e) {
     if (this.checked) {
         ruunning();
         start();
+        date();
     } else {
         stopped();
+        reset();
     }
 }
 
@@ -173,4 +175,15 @@ function ruunning() {
     currSpan2.textContent = "Current Readings";
 }
 
+function date(){
+    var today = new Date();
+    var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
+    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds()
+    var ab = document.getElementById('span-info-4')
+    ab.textContent = date+' '+time+' Hrs';
+}
 
+function reset(){
+    var ab = document.getElementById('span-info-4')
+    ab.textContent = '00/00/0000 00:00 Hrs';
+}
