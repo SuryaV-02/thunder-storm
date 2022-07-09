@@ -20,17 +20,29 @@
 </script>
 </head>
 
-<body height="100%">   
-    <div class="container d-flex justify-content-center" >
+<body height="100%">
+    <div class="container d-flex justify-content-center">
         <img id="Logo" src="./logo.png" class="ing-fluid" width="350px" height="150px">
-        </div>
-
+    </div>
 
     <div class="container d-flex flex-column justify-content-center mt-5">
         <div class="d-flex justify-content-center" id="title-alert" style="color:dimgray; font-size: 45px;">
             Cyber physical systems - Digital Twin for CNC turning center
         </div>
 
+        <div id="TSwitch">
+            <h4>OFF</h4>
+            <label class="switch" for="chk">
+                <input type="checkbox" class="checkbox" id="chk" name="chk" value="yes">
+                <span class="slider round"></span>
+            </label>
+            <h4>ON</h4>
+        </div>
+        
+        <script>
+            const ca = document.querySelector('#chk');
+            ca.addEventListener('change', onChange);
+        </script>
 
         <div class="container-main container d-flex mt-5">
             <div class="container-fluid col-6">
@@ -41,10 +53,11 @@
                             <!-- feed rate, depth of cut and spindle speed/ rotational speed, lubricant -->
                             <p class="card-text">Machine ID <span id="span-info-1">UP156aTY24</span></p>
                             <p class="card-text">Machine Location <span id="span-info-2"> CEG Chennai </span></p>
-                            <p class="card-text">Status <span id="span-info-3"> Running </span></p>
-                            <p class="card-text">Start time 
+                            <p class="card-text">Status <span id="span-info-3"> Stopped </span></p>
+                            <p class="card-text">Start time
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <span id="span-info-4"> 01/07/2022 16:56 </span></p>
+                                <span id="span-info-4"> 01/07/2022 16:56 </span>
+                            </p>
                             <!-- <p class="card-text">Current <span id="span-feed-5"> $value </span></p> -->
                         </div>
                     </div>
@@ -56,8 +69,10 @@
                             <p class="card-text">Feedback <span id="span-feed-2"> $value </span></p>
                             <p class="card-text">DC bus voltage <span id="span-feed-3"> $value </span></p>
                             <p class="card-text">Output voltage &nbsp;&nbsp; <span id="span-feed-4"> $value </span></p>
-                            <p class="card-text">Power&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <span id="span-feed-5"> $value </span></p>
+                            <p class="card-text">
+                                Power&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <span id="span-feed-5"> $value </span>
+                            </p>
                         </div>
                     </div>
                 </div>

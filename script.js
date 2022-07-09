@@ -146,3 +146,22 @@ function skhst_cheers() {
     }
     request.send();
 }
+function onChange(e) {
+    if (this.checked) {
+        clickFunction2();
+    } else {
+        clickFunction();
+    }
+}
+
+function clickFunction() {
+    var currSpan = document.getElementById("span-info-3");
+    currSpan.textContent = "Stopped";
+}
+
+function clickFunction2() {
+    var currSpan = document.getElementById("span-info-3");
+    currSpan.textContent = "Running";
+}
+
+
