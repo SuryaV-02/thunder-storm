@@ -1,19 +1,21 @@
-$(document).ready(function () {
-    GetData();
-    // Play_audio();
-    // load_and_play()
-    // get_audio_play()
-    $('#btn-cmd').click(function () {
-        // Play_audio()
+function start(){
+    $(document).ready(function () {
+        GetData();
+        // Play_audio();
         // load_and_play()
-        alert("Uploading command to Machine")
-        // alert()
-    })
-    // $('#alert_btn').trigger('click')
-    // playSound()
-    // skhst_cheers()
-
-});
+        // get_audio_play()
+        $('#btn-cmd').click(function () {
+            // Play_audio()
+            // load_and_play()
+            alert("Uploading command to Machine")
+            // alert()
+        })
+        // $('#alert_btn').trigger('click')
+        // playSound()
+        // skhst_cheers()
+    
+    });
+}
 
 function Play_audio() {
     $("#alert_audio").get(0).play();
@@ -145,4 +147,43 @@ function skhst_cheers() {
         }, function () { console.error('The request failed.'); });
     }
     request.send();
+}
+function onChange(e) {
+    if (this.checked) {
+        ruunning();
+        start();
+        date();
+    } else {
+        stopped();
+        reset();
+    }
+}
+
+function stopped() {
+    var currSpan = document.getElementById("span-info-3");
+    currSpan.textContent = "Stopped";
+
+    var currSpan2 = document.getElementById("readings");
+    currSpan2.textContent = "Last Readings";
+}
+
+function ruunning() {
+    var currSpan = document.getElementById("span-info-3");
+    currSpan.textContent = "Running";
+
+    var currSpan2 = document.getElementById("readings");
+    currSpan2.textContent = "Current Readings";
+}
+
+function date(){
+    var today = new Date();
+    var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
+    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds()
+    var ab = document.getElementById('span-info-4')
+    ab.textContent = date+' '+time+' Hrs';
+}
+
+function reset(){
+    var ab = document.getElementById('span-info-4')
+    ab.textContent = '00/00/0000 00:00 Hrs';
 }
